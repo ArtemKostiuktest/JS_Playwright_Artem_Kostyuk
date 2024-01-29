@@ -44,24 +44,15 @@ function isPalindrome(word) {
 }
 
 function getPaired(arr) {
-    let array = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        if (i % 2 === 0) {
-            array.push(arr[i]);
-        }
-    }
-
-    for (let j = array.length - 1; j >= 0; j--) {
-        console.log(array[j]);
-    }
+    filteredArray = arr.filter(number => number % 2 === 0).reverse();
+    console.log(filteredArray)
+    return filteredArray
 }
 
 function findComPref(strs) {
-    let prefix = strs[0]; 
+    let prefix = strs[0];
 
-
-    for (let i = 1; i < strs.length; i++) { 
+    for (let i = 1; i < strs.length; i++) {
         let j = 0;
         while (j < prefix.length && j < strs[i].length && prefix[j] === strs[i][j]) {
             j++;
