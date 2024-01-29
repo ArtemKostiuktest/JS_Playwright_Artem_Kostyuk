@@ -57,8 +57,28 @@ function getPaired(arr) {
     }
 }
 
+function findComPref(strs) {
+    let prefix = strs[0]; 
+
+
+    for (let i = 1; i < strs.length; i++) { 
+        let j = 0;
+        while (j < prefix.length && j < strs[i].length && prefix[j] === strs[i][j]) {
+            j++;
+        }
+        prefix = prefix.substring(0, j);
+        if (prefix === "") {
+            console.log("");
+        }
+    }
+
+    console.log(prefix);
+}
+
 sendsSMS("This package is native ESM and no longer provides a CommonJS export.")
 reverseWord("Hello")
 isPalindrome("aba")
 isPalindrome("abc")
-getPaired([2,3,4,5,6,7,8])
+getPaired([2, 3, 4, 5, 6, 7, 8])
+findComPref(["Unlike", "Mortgage", "Fee"])
+findComPref(["Disconnect", "Dislike", "Disagree"])
