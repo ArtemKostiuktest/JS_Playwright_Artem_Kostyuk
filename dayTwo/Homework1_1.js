@@ -44,21 +44,32 @@ function isPalindrome(word) {
 }
 
 function getPaired(arr) {
-    let array = [];
+    filteredArray = arr.filter(number => number % 2 === 0).reverse();
+    console.log(filteredArray)
+    return filteredArray
+}
 
-    for (let i = 0; i < arr.length; i++) {
-        if (i % 2 === 0) {
-            array.push(arr[i]);
+function findComPref(strs) {
+    let prefix = strs[0];
+
+    for (let i = 1; i < strs.length; i++) {
+        let j = 0;
+        while (j < prefix.length && j < strs[i].length && prefix[j] === strs[i][j]) {
+            j++;
+        }
+        prefix = prefix.substring(0, j);
+        if (prefix === "") {
+            console.log("");
         }
     }
 
-    for (let j = array.length - 1; j >= 0; j--) {
-        console.log(array[j]);
-    }
+    console.log(prefix);
 }
 
 sendsSMS("This package is native ESM and no longer provides a CommonJS export.")
 reverseWord("Hello")
 isPalindrome("aba")
 isPalindrome("abc")
-getPaired([2,3,4,5,6,7,8])
+getPaired([2, 3, 4, 5, 6, 7, 8])
+findComPref(["Unlike", "Mortgage", "Fee"])
+findComPref(["Disconnect", "Dislike", "Disagree"])
